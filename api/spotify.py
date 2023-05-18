@@ -5,13 +5,36 @@
 # ^ Provides much more options (top artists songs, related albums, etc) 
 # different format options (curl, wget, httpie)
 
+#If using wget need specific format to work in python file
+import requests
+
+url = 'https://api.spotify.com/v1/search?q=remaster%2520track%3ADoxy%2520artist%3AMiles%2520Davis&type=album'
+headers = {'Authorization': 'Bearer BQA-zn...kBCGh9'}
+
+response = requests.get(url, headers=headers)
+if response.status_code == 200:
+    content = response.text
+    print(content)
+else:
+    print('Request failed with status code:', response.status_code)
+
 
 # GET Album
+url = 'https://api.spotify.com/v1/albums/4aawyAB9vmqN3uQ7FjRGTy'
+headers = {'Authorization': 'Bearer BQA-zn...kBCGh9'}
+
+response = requests.get(url, headers=headers)
+if response.status_code == 200:
+    content = response.text
+    print(content)
+else:
+    print('Request failed with status code:', response.status_code)
+
+
 wget --quiet \
   --method GET \
   --header 'Authorization: Bearer BQDT1E...x4Phso' \
   --output-document \
-  - https://api.spotify.com/v1/albums/4aawyAB9vmqN3uQ7FjRGTy
 
 
 # GET Artist
@@ -23,8 +46,12 @@ wget --quiet \
 
 
 # SEARCH!! (basically GET song)
-wget --quiet \
-  --method GET \
-  --header 'Authorization: Bearer BQA-zn...kBCGh9' \
-  --output-document \
-  - 'https://api.spotify.com/v1/search?q=remaster%2520track%3ADoxy%2520artist%3AMiles%2520Davis&type=album'
+url = 'https://api.spotify.com/v1/search?q=remaster%2520track%3ADoxy%2520artist%3AMiles%2520Davis&type=album'
+headers = {'Authorization': 'Bearer BQA-zn...kBCGh9'}
+
+response = requests.get(url, headers=headers)
+if response.status_code == 200:
+    content = response.text
+    print(content)
+else:
+    print('Request failed with status code:', response.status_code)
