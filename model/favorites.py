@@ -8,7 +8,7 @@ from __init__ import app, db
 from sqlalchemy.exc import IntegrityError
 
 
-# Define ISPE class
+# Define FAV class
 class FAV(db.Model):
     __tablename__ = 'FAVS'
 

@@ -2,18 +2,18 @@ from flask import Blueprint, request, jsonify
 from flask_restful import Api, Resource 
 from datetime import datetime
 
-from model.ISPEs import ISPE
+from model.favorites import FAV
 
 # CODE INSPO CREDIT: John Mortensen
 
-ISPE_api = Blueprint('ISPE_api', __name__,
-                   url_prefix='/api/ISPE')
+FAV_api = Blueprint('FAV_api', __name__,
+                   url_prefix='/api/FAV')
 
 
-api = Api(ISPE_api)
+api = Api(FAV_api)
 
-# create the API for ISPE
-class ISPEAPI:        
+# create the API for FAV
+class FAVAPI:        
     class _Create(Resource):
         def post(self):
             ''' Read data for json body '''
