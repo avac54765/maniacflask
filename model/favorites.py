@@ -16,8 +16,8 @@ class FAV(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     _uid = db.Column(db.String(255), unique=True, nullable=False)
     _songname = db.Column(db.String, unique=True, nullable=False)
-    _artist = db.Column(db.Integer, unique=False, nullable=False)
-    _album = db.Column(db.Integer, unique=False, nullable=False)
+    _artist = db.Column(db.String, unique=False, nullable=False)
+    _album = db.Column(db.String, unique=False, nullable=False)
 
 
     
