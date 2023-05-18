@@ -29,10 +29,10 @@ class FAVAPI:
             id = body.get('id')
             artist = body.get('artist')
             if artist is None or len(artist) < 2:
-                return {'message': f'Artist is missing, or is less than 2 characters'}, 211
+                return {'message': f'Artist is missing, or is less than 2 characters'}, 212
             album = body.get('album')
             if album is None or len(songname) < 2:
-                return {'message': f'Album is missing, or is less than 2 characters'}, 211
+                return {'message': f'Album is missing, or is less than 2 characters'}, 213
             uid = str(datetime.now()) # temporary UID that is unique to fill garbage data
             if uid is None or len(uid) < 2:
                 return {'message': f'User ID is missing, or is less than 2 characters'}, 214
