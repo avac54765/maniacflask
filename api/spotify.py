@@ -18,3 +18,10 @@ wget --quiet \
   --output-document \
   - https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg
 
+
+# SEARCH!! (basically GET song)
+wget --quiet \
+  --method GET \
+  --header 'Authorization: Bearer BQA-zn...kBCGh9' \
+  --output-document \
+  - 'https://api.spotify.com/v1/search?q=remaster%2520track%3ADoxy%2520artist%3AMiles%2520Davis&type=album'
