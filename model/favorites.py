@@ -126,7 +126,7 @@ class FAV(db.Model):
 
 
 # making tester data to test database creation
-def initISPEs():
+def initFAVs():
     with app.app_context():
         """Create database and tables"""
         db.create_all()
