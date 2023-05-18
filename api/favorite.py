@@ -49,18 +49,18 @@ class FAVAPI:
             
             ''' #2: Key Code block to add user to database '''
            
-            ISPE = io.create()
+            FAV = fo.create()
 
             
-            if ISPE:
-                return jsonify(ISPE.read())
+            if FAV:
+                return jsonify(FAV.read())
             # failure returns error
-            return {'message': f'Processed {name2}, either a format error or User ID {uid} is duplicate'}, 215
+            return {'message': f'Processed {songname}, either a format error or User ID {uid} is duplicate'}, 215
 
     class _Read(Resource):
         def get(self):
-            ISPEs = ISPE.query.all()    # read database
-            json_ready = [ISPE.read() for ISPE in ISPEs]  # json output
+            FAVs = FAV.query.all()    # read database
+            json_ready = [FAV.read() for FAV in FAVs]  # json output
             return jsonify(json_ready)  
 
     # RESTapi endpoints
