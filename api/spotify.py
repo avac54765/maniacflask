@@ -31,18 +31,17 @@ else:
     print('Request failed with status code:', response.status_code)
 
 
-wget --quiet \
-  --method GET \
-  --header 'Authorization: Bearer BQDT1E...x4Phso' \
-  --output-document \
-
-
 # GET Artist
-wget --quiet \
-  --method GET \
-  --header 'Authorization: Bearer BQALbP...DSPCOf' \
-  --output-document \
-  - https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg
+url = 'https://api.spotify.com/v1/artists/0TnOYISbd1XYRBk9myaseg'
+headers = {'Authorization': 'Bearer BQA-zn...kBCGh9'}
+
+response = requests.get(url, headers=headers)
+if response.status_code == 200:
+    content = response.text
+    print(content)
+else:
+    print('Request failed with status code:', response.status_code)
+
 
 
 # SEARCH!! (basically GET song)
