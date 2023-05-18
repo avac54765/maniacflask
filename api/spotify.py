@@ -2,6 +2,9 @@
 # RESEARCH & WORK ON ACCESS TOKEN
 
 # Spotify Info <- use this it's literally amazing: https://developer.spotify.com/documentation/web-api
+# ^ Provides much more options (top artists songs, related albums, etc) 
+# different format options (curl, wget, httpie)
+
 
 # GET Album
 wget --quiet \
