@@ -6,8 +6,8 @@ RUN apt-get update && apt-get upgrade -y && \
 # --- Copy repo you updated with clone or pull ---
 COPY . /app
 # --- Install project specific dependencies ---
-RUN pip3 install --no-cache-dir -r requirements.txt
-RUN pip3 install gunicorn
+RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install gunicorn
 # --- Setup args to run 3 workers and run on port 8080 ---
 ENV GUNICORN_CMD_ARGS="--workers=3 --bind=0.0.0.0:8086"
 # --- Allow port 8080 to be accessed by system ---
