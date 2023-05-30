@@ -65,17 +65,30 @@ class FAVAPI:
         
     class _Delete(Resource):
         def delete(self):
-            ''' Read data for JSON body '''
+            ''' Read data from JSON body '''
             body = request.get_json()
 
-        # Extract the song details from the request body
+            # Extract the song details from the request body
             songname = body.get('songname')
             artist = body.get('artist')
             album = body.get('album')
 
+            # Perform the case-sensitive database operation to delete the FAV record
+            fav = FAV.query.filter(
+                FAV.songname == songname.lower(),
+                FAV.artist == artist.lower(),
+                FAV.album == album.lower()
+            ).first()
 
+            if fav:
+                try:
+                    fav.delete()
+                    return {'message': 'FAV record deleted successfully'}, 200
+                except:
+                    return {'message': 'Failed to delete FAV record'}, 500
+            else:
+                return {'message': 'FAV record not found'}, 333
 
-            return {'message': 'Song deleted successfully'}, 200  # Return a success response
 
     # RESTapi endpoints
     api.add_resource(_Create, '/create')

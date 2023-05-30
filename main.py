@@ -39,17 +39,17 @@ def table():
 def activate_job():  # activate these items 
     initFAVs()
 
-#@app.after_request
-#def after_request(response):
-    #response.headers.add('Access-Control-Allow-Origin', '*')
-    #response.headers.add('Access-Control-Allow-Headers', 'Content-Type, Authorization')
-    #response.headers.add('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH')
-    #return response
+@app.after_request
+def after_request(response):
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+    response.headers.add('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS, PATCH')
+    return response
 
 
 # this runs the application on the development server
 if __name__ == "__main__":
     # change name for testing
-    from flask_cors import CORS
-    cors = CORS(app)
+    #from flask_cors import CORS
+    #cors = CORS(app)
     app.run(debug=True, host="0.0.0.0", port="8086")
