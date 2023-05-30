@@ -4,4 +4,4 @@
 - This project focuses on music. Users are able to add their favorite songs at the moment and look for concerts, comedy shows, and sports games.
 
 ### [Deployed Backend](http://maniacmusic.duckdns.org/)
-### [Frontend Repository](https://github.com/avac54765/ManiacMusic) and [Site](https://avac54765.github.io/ManiacMusic/)
+### [Frontend Repository](https://github.com/avac54765/ManiacMusic) and [Deplpoyed Site](https://avac54765.github.io/ManiacMusic/)
