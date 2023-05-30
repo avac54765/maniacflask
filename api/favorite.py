@@ -62,7 +62,22 @@ class FAVAPI:
             FAVs = FAV.query.all()    # read database
             json_ready = [FAV.read() for FAV in FAVs]  # json output
             return jsonify(json_ready)  
+        
+    class _Delete(Resource):
+        def delete(self):
+            ''' Read data for JSON body '''
+            body = request.get_json()
+
+        # Extract the song details from the request body
+            songname = body.get('songname')
+            artist = body.get('artist')
+            album = body.get('album')
+
+
+
+            return {'message': 'Song deleted successfully'}, 200  # Return a success response
 
     # RESTapi endpoints
     api.add_resource(_Create, '/create')
+    api.add_resource(_Delete,'/delete')
     api.add_resource(_Read, '/')
