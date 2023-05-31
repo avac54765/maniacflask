@@ -119,7 +119,7 @@ class FAV(db.Model):
     def delete(self):
         db.session.delete(self)
         db.session.commit()
-        return None
+        #return None
 
 
 """Database Creation and Testing """

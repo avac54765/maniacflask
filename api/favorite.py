@@ -2,6 +2,7 @@ from flask import Blueprint, request, jsonify
 from flask_restful import Api, Resource 
 from datetime import datetime
 
+
 from model.favorites import FAV
 
 # CODE INSPO CREDIT: John Mortensen
@@ -60,37 +61,45 @@ class FAVAPI:
     class _Read(Resource):
         def get(self):
             FAVs = FAV.query.all()    # read database
-            json_ready = [FAV.read() for FAV in FAVs]  # json output
+            json_ready = [song.read() for song in FAVs]  # json output
             return jsonify(json_ready)  
-        
+    
+    
     class _Delete(Resource):
         def delete(self):
             ''' Read data from JSON body '''
             body = request.get_json()
+            
+            #nameog = FAV.query.filter_by(songname="Hello")
+            #name = nameog.read()
 
-            # Extract the song details from the request body
-            songname = body.get('songname')
-            artist = body.get('artist')
-            album = body.get('album')
+            try:
+                #name.delete()
+                FAV.query.filter_by(songname="Hello")
+                return 900
+            except:
+                 return {'message': f'query.filter did not work'}, 345
 
-            # Perform the case-sensitive database operation to delete the FAV record
-            fav = FAV.query.filter(
-                FAV.songname == songname.lower(),
-                FAV.artist == artist.lower(),
-                FAV.album == album.lower()
-            ).first()
+            #return {'message': f'{name} was found and deleted woooo return message'}, 999
+            #name = FAV.query.filter_by(songname=body.get('songname')).first
 
-            if fav:
-                try:
-                    fav.delete()
-                    return {'message': 'FAV record deleted successfully'}, 200
-                except:
-                    return {'message': 'Failed to delete FAV record'}, 500
-            else:
-                return {'message': 'FAV record not found'}, 333
+            #try:
+                #name.delete()
+                #FAV.query.filter_by(songname=body.get('songname')).delete()
+                #return f"{name.read()} Has been deleted"
+                #return 444
+           # except:
+                #return {'message': 'FAV record not found'}, 333
+           
+        
 
+    
 
     # RESTapi endpoints
     api.add_resource(_Create, '/create')
     api.add_resource(_Delete,'/delete')
     api.add_resource(_Read, '/')
+
+   
+
+    
