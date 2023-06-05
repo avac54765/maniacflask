@@ -11,3 +11,10 @@ This repository contains edits of the flask_portfolio repository from nighthawkc
 
 Clone both repositories to get the full Carlson experience of full stack.
 
+---
+
+For local host: 
+- run main.py
+- a sqlite file will generate under volumes, open it with the special veiwer to see the database of FAVs
+- for full stack with local: comment out CORs lines of code and add the CORs headers that are commented out above
+
